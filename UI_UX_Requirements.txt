@@ -1,0 +1,694 @@
+================================================================================
+           MNEMOVAULT - COMPLETE UI/UX DESIGN & ENGINEERING REQUIREMENTS
+                  The Living Family Archive Experience & Motion System
+================================================================================
+VERSION: 2.0 (PRODUCTION REPLICATION SPECIFICATION)
+PURPOSE: Comprehensive blueprint for recreating the entire visual identity,
+         motion physics, component architecture, and responsive behaviors
+         in another codebase or framework without any missing details.
+================================================================================
+
+TABLE OF CONTENTS:
+  1. Project Vision & Experience Principles
+  2. Complete Color Palette & Token Catalog
+  3. Typography Hierarchy & Font Stacks
+  4. Atmospheric Background Canvas: Firefly Particle System
+  5. The 8 Archival Ephemera Cards (Data, Content & Layout)
+  6. Scroll-Driven Engine: Clustered Stack to Scatter to Zoom-Glide
+  7. Full Page Layout & Downstream Editorial Sections
+  8. Interactive States, Hover FX & Micro-Animations
+  9. Critical Engineering Pitfalls, Bugs & Rules of Physics
+  10. Implementation & Replication Checklist
+
+================================================================================
+1. PROJECT VISION & EXPERIENCE PRINCIPLES
+================================================================================
+- Concept: A tactile, living family memory vault where photographs, handwritten
+  letters, train tickets, family recipes, and recorded voices interweave into an
+  intimate tapestry.
+- Emotional Atmosphere: Royal Indian dusk, ancestral courtyard warmth, reverent,
+  editorial, cinematic, and physical. Memories feel like treasured ephemera held
+  together by golden threads rather than cold, flat digital UI cards.
+- Foundational Tenet: "A photograph keeps a moment. A voice brings it home."
+- Core Motion Tenet: Continuous Identity. When moving between the hero scatter
+  and the editorial section ("Some stories are still between the photographs"),
+  never create duplicate or artificial transition cards. The exact wedding photo
+  card from the hero cluster must magnify and glide directly into its final
+  resting place in Section 01.
+
+
+================================================================================
+2. COMPLETE COLOR PALETTE & TOKEN CATALOG
+================================================================================
+All colors are carefully tuned for a high-contrast, moody, warm dark theme.
+
+A. Canvas & Dark Surface Backgrounds:
+   - Void Background: #0D0709
+     The foundational page background. A velvety charcoal-aubergine black.
+   - Dark Card Burgundy / Aubergine: #230B17
+     Used for the photo cards, audio card, and story invitation container.
+   - Heritage Plum: #280C1B
+     Used for handwritten letters and postcard containers.
+   - Dark Violet Nav/Pill: #2B0E1B
+     Used for the audio play button background and the header navigation button.
+   - Railway Emerald: #162E25
+     Vintage Indian Railways ticket paper stock.
+   - Deep Archive & Storyboard Void: #0D0709 (RGB: 13, 7, 9)
+     Used for the Storyboard canvas, workspace, sidebar, and timeline views.
+
+B. Precious Metals & Accent Golds:
+   - Primary Archival Brass / Warm Gold: #FFD269
+     Used for dates, tags, icons, play buttons, active links, ticker text.
+   - Amber Gold / Border Accent: #F9A436
+     Used for card borders, ticket double rules, waveform bars, active gradients.
+   - Antique Brass / Rust: #C1673A
+     Used for tertiary buttons, subtle borders, and tag lines.
+   - Antique Mustard: #C9B93A
+
+C. Emotional Florals & Highlights:
+   - Dusty Rose: #E87A9E
+     Used for section eyebrows ("01 / FOLLOW THE THREAD"), train ticket date text,
+     and secondary metadata.
+   - Soft Rose Silk: #F6B8CE
+     Used for italicized headline words (<em>A voice brings it home.</em>),
+     letter sign-offs ("With love, Anil"), and delicate link hovers.
+
+D. Typography Colors:
+   - Crisp White: #FFFFFF (H1, H2, H3 titles, high-contrast display text)
+   - Muted Parchment: #E0D7DC (Body copy, descriptions, letter body)
+   - Dim Archival Grey: #A898A0 (Footnotes, secondary captions, subtle labels)
+
+E. Gradients:
+   - Primary Gold Button Gradient:
+     linear-gradient(135deg, #FFD269 0%, #F9A436 100%)
+   - Primary Button Hover Gradient:
+     linear-gradient(135deg, #FFF0B8 0%, #FFD269 100%)
+   - Film Vignette Gradient:
+     linear-gradient(90deg, #0D0709 30%, rgba(43, 14, 27, 0.85) 80%, transparent 100%)
+   - Photo Gradient Overlay (caption contrast):
+     linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)
+
+F. Borders & Glassmorphism:
+   - Standard Card Border: 1px solid rgba(249, 164, 54, 0.22)
+   - Highlight Card Border (Active/Focal): 1px solid rgba(249, 164, 54, 0.38)
+   - Header & Divider Rule: 1px solid rgba(249, 164, 54, 0.15)
+   - Ticket Double Border: 3px double #F9A436 (top & bottom)
+   - Audio Card Border: 1px solid rgba(232, 122, 158, 0.28)
+
+G. Box Shadows & Aura Glows:
+   - Card Resting Shadow: 0 16px 45px rgba(0, 0, 0, 0.88)
+   - Focal Card Shadow: 0 18px 50px rgba(0, 0, 0, 0.92)
+   - Hover Card Rose Aura: 0 22px 55px rgba(232, 122, 158, 0.35)
+   - Record Button Pulse Glow: 0 0 35px rgba(249, 164, 54, 0.40)
+   - Headline Contrast Shadow:
+     text-shadow: 0 4px 30px rgba(13, 7, 9, 0.95), 0 1px 12px rgba(13, 7, 9, 0.85)
+   - Rose Italic Glow:
+     text-shadow: 0 0 30px rgba(232, 122, 158, 0.45), 0 4px 20px rgba(13, 7, 9, 0.95)
+
+
+================================================================================
+3. TYPOGRAPHY HIERARCHY & FONT STACKS
+================================================================================
+Fonts to include (via Google Fonts or local font files):
+  1. 'Cormorant Garamond' (Weights: 400, 500, 600; Normal & Italic)
+  2. 'Manrope' (Weights: 400, 500, 600, 700)
+  3. 'Inter' (Weights: 400, 500, 600)
+  4. 'IBM Plex Mono' (Weights: 400, 500)
+  5. 'Lora' (Fallback / secondary serif)
+
+Typography Rules:
+- Hero H1:
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(44px, 5.2vw, 86px);
+  line-height: 1.02;
+  letter-spacing: -2px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-shadow: 0 4px 30px rgba(13, 7, 9, 0.95), 0 1px 12px rgba(13, 7, 9, 0.85);
+
+- Hero H1 Italics (<em>):
+  font-style: italic;
+  font-weight: 400;
+  color: #F6B8CE;
+  text-shadow: 0 0 30px rgba(232, 122, 158, 0.45), 0 4px 20px rgba(13, 7, 9, 0.95);
+
+- Section Headings H2:
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 56px (responsive clamp 38px to 56px);
+  line-height: 1.06;
+  font-weight: 400;
+  color: #FFFFFF;
+
+- Card Headings H3:
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px to 32px;
+  line-height: 1.12;
+  font-weight: 400;
+  color: #FFFFFF;
+
+- Eyebrows & Badges:
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #E87A9E;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  Prefix rule: 25px wide by 1px high solid #E87A9E line.
+
+- Body Copy:
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: #E0D7DC;
+  max-width: 520px;
+
+- Transit / Ephemera Code (IBM Plex Mono):
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #E87A9E;
+
+- Storyboard Floating Canvas Typography:
+  All text outside the cards on the main Storyboard canvas (node captions `.node-document > .node-caption`, dates `.map-node small`, person label `.map-person span`, events `.map-event`, and hint `.map-hint`):
+  color: #F6B8CE (Soft Rose Silk).
+
+
+================================================================================
+4. ATMOSPHERIC BACKGROUND CANVAS: FIREFLY PARTICLE SYSTEM
+================================================================================
+A self-contained HTML5 Canvas layer running on RequestAnimationFrame (RAF).
+Sits behind the cards (z-index: 2) inside the sticky hero container.
+
+Canvas Specifications:
+- Particle Count: 50 particles (prominent and atmospheric)
+- High-DPI / Retina Canvas support (`devicePixelRatio` scaled)
+- Container: position: absolute; inset: 0; pointer-events: none; z-index: 2;
+- Blend Mode: `ctx.globalCompositeOperation = "lighter"` (additive luminous optical glow)
+- Multi-tier Color Palette:
+  1. Warm Gold: `rgb(255, 210, 105)` (#FFD269)
+  2. Deep Honey Amber: `rgb(249, 164, 54)` (#F9A436)
+  3. Radiant Champagne: `rgb(255, 232, 160)`
+  4. Soft Rose-Gold: `rgb(246, 184, 206)` (#F6B8CE)
+- Particle Data Structure:
+  {
+    x: number (0 to canvas.width),
+    y: number (0 to canvas.height),
+    depth: 0.35 to 1.0 (depth layering),
+    size: (1.6 to 3.8px) * depth,
+    r, g, b: RGB color triplet from palette,
+    baseAlpha: 0.55 to 0.95 (prominent baseline brightness),
+    phase: 0 to 2*PI,
+    phaseSpeed: 0.012 to 0.037,
+    speedY: (0.18 to 0.58 px/frame) * depth,
+    sineSpeed1, sineAmp1: primary harmonic oscillation,
+    sineSpeed2, sineAmp2: secondary organic wander
+  }
+
+Animation Loop:
+1. Clear canvas: `ctx.clearRect(0, 0, width, height)`
+2. Set additive composite mode: `ctx.globalCompositeOperation = "lighter"`
+3. For each firefly:
+   - Upward float and dual-frequency waft:
+     `f.y -= f.speedY;`
+     `f.x += Math.sin(t * f.sineSpeed1 + f.phase) * f.sineAmp1 + Math.cos(t * f.sineSpeed2) * f.sineAmp2 + f.speedX;`
+   - Seamless wrapping with 40px screen edge soft fade:
+     `if (f.y < -30) { f.y = height + 20; f.x = Math.random() * width; }`
+   - Organic bioluminescent power-curve breathing:
+     `breath = Math.pow(Math.max(0, Math.sin(f.phase)), 1.6);`
+     `f.alpha = f.baseAlpha * (0.22 + 0.78 * breath) * edgeFade;`
+   - Render 4-stage optical bloom:
+     a. Expansive soft atmospheric aura (radius: `f.size * (6.0 + 2.5 * breath)`)
+     b. Focused warm mid halo (radius: `f.size * 2.6`)
+     c. Hot incandescent spark core (radius: `f.size * 0.75`, `rgba(255, 255, 240, 1)`)
+     d. Anamorphic lens flare cross-spikes during peak flash (breath > 0.65, depth > 0.6)
+
+
+================================================================================
+5. THE 8 ARCHIVAL EPHEMERA CARDS (DATA, CONTENT & LAYOUT)
+================================================================================
+Array order equals render/stack order (z-index 2 to 9).
+Stack offsets (`stackOffset`) and scatter targets (`target`) are in `vw` and `vh`
+relative to viewport center `(left: 50%, top: 50%, transform: translate(-50%, -50%))`.
+
+--------------------------------------------------------------------------------
+CARD 0 (Index 0): The House with the Mango Tree (Pune, 1994)
+- Type: Photograph card
+- Media: `/images/house.png` (aspect ratio ~1.53, cover fit)
+- Tag: "Photographs" (#E87A9E, 9px uppercase)
+- Caption: "The house with the mango tree · Pune, 1994"
+- Clustered Stack: offset: `{ x: -10vw, y: -12vh }`, rotate: `-14deg`
+- Hero Scatter Target: `{ x: -33vw, y: -29vh, rotate: -4deg, scale: 1.02, w: 29vw, h: 38vh }`
+- Mobile Target: `{ x: -22vw, y: -40vh }`
+- Z-Index: 2
+--------------------------------------------------------------------------------
+CARD 1 (Index 1): The Wedding Afternoon (Delhi, 1987) — [THE FOCAL CARD]
+- Type: Authentic Photograph Card (Transforms into Section 01 story invitation)
+- Media: `/images/wedding.png`
+- Tag: "Photographs" (#E87A9E)
+- Caption: "The wedding afternoon · Delhi, 1987"
+- Clustered Stack: offset: `{ x: 14vw, y: -12vh }`, rotate: `16deg`
+- Hero Scatter Target: `{ x: 33vw, y: -27vh, rotate: 4deg, scale: 1.04, w: 30vw, h: 40vh }`
+- Mobile Target: `{ x: 22vw, y: -40vh }`
+- Z-Index: 3 (elevates to 35 during zoom transition)
+- Destination: Right column of Editorial Section 01 (`x: 21.5vw, y: 0vh, scale: 1.0, rotate: 2deg`).
+--------------------------------------------------------------------------------
+CARD 2 (Index 2): Anil's Letter to Meera (Pune, 18 July 1994)
+- Type: Handwritten archival letter card
+- Container: Background `#280C1B`, border `1px solid rgba(249,164,54,0.25)`, padding `28px`
+- Content:
+  - Header: `<small class="text-[#E87A9E] text-[10.5px] tracking-[2.5px] font-semibold uppercase">PUNE, 18 JULY 1994</small>`
+  - Body: `<p class="font-serif italic text-[17px] leading-[1.52] text-white">My dear Meera,<br/><br/>The house is smaller than we imagined. But there is a mango tree in the courtyard, and already it feels like ours.<br/><br/>Come soon. There is so much to tell.</p>`
+  - Signoff: `<em class="text-[#F6B8CE] font-serif italic text-[16px] block text-right">With love, Anil</em>`
+- Clustered Stack: offset: `{ x: -16vw, y: 0vh }`, rotate: `-5deg`
+- Hero Scatter Target: `{ x: -39vw, y: 0vh, rotate: -3deg, scale: 0.96, w: 24vw, h: 38vh }`
+- Mobile Target: `{ x: -22vw, y: -19vh }`
+- Z-Index: 4
+--------------------------------------------------------------------------------
+CARD 3 (Index 3): Indian Railways Ticket (Delhi -> Bombay, 16 June 1976)
+- Type: Vintage green transit ticket
+- Container: Background `#162E25`, border-top: `3px double #F9A436`, border-bottom: `3px double #F9A436`, padding `24px`
+- Content:
+  - Header: `<small class="text-[#E87A9E] text-[10px] tracking-[2.5px] font-semibold uppercase">INDIAN RAILWAYS</small>`
+  - Route: `<strong class="font-serif text-[21px] text-white flex items-center gap-3">DELHI <ArrowRight size={20} class="text-[#E87A9E]"/> BOMBAY</strong>`
+  - Class: `<span class="font-mono text-[10px] text-[#E87A9E]">SECOND CLASS · 16 JUNE 1976</span>`
+  - Perforation: Border top `1px dashed rgba(249,164,54,0.3)`
+  - Number: `<div class="font-mono text-[10px] text-[#E0D7DC] pt-2.5">№ 047219 &nbsp; ———— &nbsp; ONE JOURNEY</div>`
+- Clustered Stack: offset: `{ x: 1vw, y: -14vh }`, rotate: `-2deg`
+- Hero Scatter Target: `{ x: 0vw, y: -39vh, rotate: 1deg, scale: 0.94, w: 27vw, h: 31vh }`
+- Mobile Target: `{ x: 22vw, y: -19vh }`
+- Z-Index: 5
+--------------------------------------------------------------------------------
+CARD 4 (Index 4): Meera's Audio Recording Memory
+- Type: Burgundy audio snippet card
+- Container: Background `#230B17`, border `1px solid rgba(232,122,158,0.28)`, padding `24px`, rounded `4px`
+- Visuals:
+  - Circular play button: 48px circle, `#2B0E1B`, border `1px solid rgba(249,164,54,0.38)`, icon `#E87A9E`
+  - Audio Waveform: 37 vertical bars (width: 2px, background: `#F9A436`, height: `8 + |sin(i*1.7) * cos(i*0.6)| * 25px`)
+  - Eyebrow: "MEERA'S MEMORY" (9px uppercase #E87A9E)
+  - Spoken Quote: “Oh, I remember that afternoon…” (Cormorant Garamond italic, 17px, `#E87A9E`)
+  - Timestamp: "0:42" (IBM Plex Mono, 11px, `#E0D7DC`)
+- Clustered Stack: offset: `{ x: 18vw, y: 2vh }`, rotate: `7deg`
+- Hero Scatter Target: `{ x: 39vw, y: 6vh, rotate: 3deg, scale: 0.96, w: 27vw, h: 30vh }`
+- Mobile Target: `{ x: -22vw, y: 20vh }`
+- Z-Index: 6
+--------------------------------------------------------------------------------
+CARD 5 (Index 5): Meera, the Storyteller (Around 2011)
+- Type: Portrait photograph card
+- Media: `/images/meera.png`
+- Tag: "Voices" (#E87A9E)
+- Caption: "Meera, the storyteller · Around 2011"
+- Clustered Stack: offset: `{ x: -8vw, y: 11vh }`, rotate: `5deg`
+- Hero Scatter Target: `{ x: -32vw, y: 32vh, rotate: -3deg, scale: 1.0, w: 26vw, h: 35vh }`
+- Mobile Target: `{ x: 22vw, y: 20vh }`
+- Z-Index: 7
+--------------------------------------------------------------------------------
+CARD 6 (Index 6): Kavita's Mango Pickle Recipe (Summer 2002)
+- Type: Family recipe card
+- Container: Background `#280C1B`, border `1px solid rgba(249,164,54,0.22)`, padding `24px`
+- Content:
+  - Header: `<small class="text-[#E87A9E] text-[10px] tracking-[2px] font-semibold uppercase">PUNE · SUMMER 2002</small>`
+  - Body: `<p class="font-serif italic text-[16px] leading-[1.48] text-white">Green mangoes, mustard seeds, turmeric, chilli and salt. Dry the mango pieces in the afternoon sun. Warm the oil, then let it cool.</p>`
+  - Signoff: `<em class="text-[#F6B8CE] font-serif italic text-[15px] block text-right">Kavita's recipe</em>`
+- Clustered Stack: offset: `{ x: 7vw, y: 10vh }`, rotate: `4deg`
+- Hero Scatter Target: `{ x: 0vw, y: 39vh, rotate: -1deg, scale: 0.94, w: 27vw, h: 30vh }`
+- Mobile Target: `{ x: -22vw, y: 40vh }`
+- Z-Index: 8
+--------------------------------------------------------------------------------
+CARD 7 (Index 7): Grandmother Asha's Tea & Home Note (Delhi, July 1994)
+- Type: Warm family advice note
+- Container: Background `#280C1B`, border `1px solid rgba(249,164,54,0.22)`, padding `24px`
+- Content:
+  - Header: `<small class="text-[#E87A9E] text-[10px] tracking-[2px] font-semibold uppercase">DELHI · JULY 1994</small>`
+  - Body: `<p class="font-serif italic text-[16px] leading-[1.48] text-white">Have you reached safely? Put the kettle on before you unpack. A house begins to feel like home with the first cup of tea.</p>`
+  - Signoff: `<em class="text-[#F6B8CE] font-serif italic text-[15px] block text-right">Asha</em>`
+- Clustered Stack: offset: `{ x: 20vw, y: 13vh }`, rotate: `-8deg`
+- Hero Scatter Target: `{ x: 33vw, y: 33vh, rotate: 5deg, scale: 0.96, w: 26vw, h: 32vh }`
+- Mobile Target: `{ x: 22vw, y: 40vh }`
+- Z-Index: 9
+
+
+================================================================================
+6. SCROLL-DRIVEN ENGINE: MULTI-ACT CONTINUOUS TIMELINE (HERO -> SEC 01 -> SEC 02)
+================================================================================
+The transition is driven by a single continuous tall container (height: 700vh) with an inner
+viewport-pinned sticky stage (`position: sticky; top: 0; height: 100vh; overflow: hidden;`).
+
+Scroll Progress (scrollYProgress: 0.00 -> 1.00) Timeline Breakdown:
+
+┌───────────────────┬────────────────────────────────────────────────────────┐
+│ scrollYProgress   │ Visual Stage & Motion Behavior                         │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.00 → 0.03       │ Clustered Stack Phase:                                 │
+│                   │ Cards fan out slightly around center at scale 1.12.    │
+│                   │ Mouse pointer parallax responds gently to cursor.      │
+│                   │ Center headline is hidden (opacity: 0).                │
+│                   │ Scroll hint is visible at bottom ("Scroll to follow"). │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.03 → 0.22       │ Hero Scatter Phase:                                    │
+│                   │ Cards scatter smoothly from stackOffset to targets.    │
+│                   │ Scroll hint fades out (0.00 → 0.04) -> display: none.  │
+│                   │ Center headline fades in (0.03 → 0.12) & scales 0.88→1 │
+│                   │ Headline sits at z-index 30, strictly above cards.     │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.22 → 0.36       │ Hero Dismissal & Zoom to Center (Act 2):               │
+│                   │ Normal 7 cards & hero headline fade out (0.22 → 0.27). │
+│                   │ Wedding Photo elevates to z-35, zooms (1.04 → 1.85),   │
+│                   │ and moves from (33vw, -27vh) to Center (0, 0).         │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.36 → 0.48       │ Section 01 Reveal (Act 2):                             │
+│                   │ Wedding Photo glides from (0, 0) to RIGHT (21.5vw, 0). │
+│                   │ Scale reduces (1.85 → 1.0), rotation sets to 2deg.     │
+│                   │ Story footer & vintage torn tape fade in.              │
+│                   │ Section 01 text slides in from LEFT (x: -40px → 0px).  │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.48 → 0.56       │ Section 01 Locked Reading Hold:                        │
+│                   │ Clean 2-column layout (Text on Left, Photo on Right).  │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.56 → 0.68       │ Section 01 Exit & Zoom Back to Center (Act 3):         │
+│                   │ Section 01 text, tape, and footer fade out.            │
+│                   │ Wedding Photo glides back from RIGHT to Center (0, 0). │
+│                   │ Photo zooms back in toward camera (1.0 → 1.85).        │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.65 → 0.72       │ Center Morph / Cross-Fade (Act 3):                     │
+│                   │ At peak center zoom (0, 0), Photo Card Face cross-     │
+│                   │ fades into Voice Recording Card Face (.record-preview).│
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.72 → 0.85       │ Section 02 Reveal (Act 4):                             │
+│                   │ Morphed Voice Card glides to LEFT column (-21.5vw, 0). │
+│                   │ Scale reduces (1.85 → 1.0), rotation sets to -2deg.    │
+│                   │ Section 02 text slides in from RIGHT (x: 40px → 0px).  │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ 0.85 → 1.00       │ Section 02 Locked Reading Hold & Handoff:              │
+│                   │ Left: Interactive Voice Card (pulsing record demo).    │
+│                   │ Right: Section 02 Editorial Text.                      │
+│                   │ At 1.00, sticky container smoothly unpins into Sec 03. │
+└───────────────────┴────────────────────────────────────────────────────────┘
+
+Deterministic Math Interpolations:
+To prevent Framer Motion string interpolation parse errors, use functional transforms:
+
+1. Focal Translation (Continuous 4-Phase Coordinates):
+   useTransform(scrollYProgress, (p) => {
+     let x = target.x, y = target.y;
+     if (p <= 0.20) {
+       const t = p / 0.20;
+       x = stackOffset.x + (target.x - stackOffset.x) * t;
+       y = stackOffset.y + (target.y - stackOffset.y) * t;
+     } else if (p <= 0.25) {
+       x = target.x; y = target.y;
+     } else if (p <= 0.36) {
+       const t = (p - 0.25) / 0.11;
+       const ease = 1 - Math.pow(1 - t, 2);
+       x = target.x * (1 - ease); y = target.y * (1 - ease);
+     } else if (p <= 0.48) {
+       const t = (p - 0.36) / 0.12;
+       const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+       x = destX * ease; y = destY * ease;
+     } else if (p <= 0.56) {
+       x = destX; y = destY;
+     } else if (p <= 0.68) {
+       const t = (p - 0.56) / 0.12;
+       const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+       x = destX * (1 - ease); y = destY * (1 - ease);
+     } else if (p <= 0.72) {
+       x = 0; y = 0;
+     } else if (p <= 0.85) {
+       const t = (p - 0.72) / 0.13;
+       const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+       x = -destX * ease; y = destY * ease;
+     } else {
+       x = -destX; y = destY;
+     }
+     return `calc(-50% + ${x.toFixed(2)}vw) calc(-50% + ${y.toFixed(2)}vh)`;
+   });
+
+2. Focal Scale (Dual Peak Zoom):
+   useTransform(scrollYProgress, (p) => {
+     if (p <= 0.20) return stackScale + (restScale - stackScale) * (p / 0.20);
+     if (p <= 0.25) return restScale;
+     if (p <= 0.36) {
+       const t = (p - 0.25) / 0.11;
+       const ease = 1 - Math.pow(1 - t, 2);
+       return restScale + (midScale - restScale) * ease;
+     }
+     if (p <= 0.48) {
+       const t = (p - 0.36) / 0.12;
+       const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+       return midScale + (1.0 - midScale) * ease;
+     }
+     if (p <= 0.56) return 1.0;
+     if (p <= 0.68) {
+       const t = (p - 0.56) / 0.12;
+       const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+       return 1.0 + (midScale - 1.0) * ease;
+     }
+     if (p <= 0.72) return midScale;
+     if (p <= 0.85) {
+       const t = (p - 0.72) / 0.13;
+       const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+       return midScale + (1.0 - midScale) * ease;
+     }
+     return 1.0;
+   });
+
+3. Focal Rotation:
+   useTransform(scrollYProgress, (p) => {
+     if (p <= 0.20) return stackRotate + (endRotate - stackRotate) * (p / 0.20);
+     if (p <= 0.25) return endRotate;
+     if (p <= 0.36) return endRotate * (1 - (p - 0.25) / 0.11);
+     if (p <= 0.48) return 2 * ((p - 0.36) / 0.12);
+     if (p <= 0.56) return 2;
+     if (p <= 0.68) return 2 * (1 - (p - 0.56) / 0.12);
+     if (p <= 0.72) return 0;
+     if (p <= 0.85) return -2 * ((p - 0.72) / 0.13);
+     return -2;
+   });
+
+4. Normal Cards Fade & Display:
+   normalOpacity = useTransform(scrollYProgress, (p) => {
+     if (p <= 0.22) return 1;
+     if (p <= 0.27) return 1 - (p - 0.22) / 0.05;
+     return 0;
+   });
+   normalDisplay = useTransform(scrollYProgress, (p) => (p > 0.28 ? "none" : "block"));
+
+
+================================================================================
+7. FULL PAGE LAYOUT & DOWNSTREAM EDITORIAL SECTIONS
+================================================================================
+
+A. Navigation Header:
+   - Height: 106px, margin: 0 4.5%
+   - Border bottom: 1px solid rgba(249, 164, 54, 0.15)
+   - Brand Emblem: `<Sparkle size={29} strokeWidth={1} /><span>MNEMOVAULT</span>`
+     Font: 16px, letter-spacing: 3.5px, font-weight: 600, color: #FFFFFF
+     Icon color: #FFD269 with filter `drop-shadow(0 0 10px rgba(249,164,54,.38))`
+   - Nav Links:
+     - "How it works": color #E2D6DC, hover #F6B8CE
+     - "Open sample archive": Interactive ShinyButton with rotating conic gradient
+       gleam edge (`@property --gradient-angle`), subtle radial speckle texture,
+       sheen reflection, and inner breathing glow (`<ShinyButton />`).
+       - Fill Color: `#280C1B` (heritage plum-burgundy)
+       - Label Color: `#FFD269` (archival brass)
+       - Accent Conic Glow: `#F9A436` (amber gold)
+       - Soft Accent Sheen: `#FFD269`
+       - Corner Radius: 4px
+       - Arc Width: 14%
+       - Sweep Duration: 3s
+       - Padding: 11px 20px, font-size: 13px, gap: 10px with <ArrowUpRight size={16} />
+
+B. Section 01: Editorial Thread (Revealed inside the sticky stage):
+   - 2-Column grid (max-width: 1250px, gap: 100px, padding: 120px 50px)
+   - Left Column Typography & Styling:
+     - Eyebrow: `01/ FOLLOW THE THREAD`
+       - Font: `'Libre Baskerville', Georgia, serif`
+       - Size: 13px, font-weight: 400, letter-spacing: 1.2px, color: `#E87A9E`
+     - Main Headline Line 1: `Some stories are still` (single line)
+       - Font: `'Londrina Solid', sans-serif`
+       - Size: `clamp(38px, 4.3vw, 68px)`, font-weight: 900, line-height: 1.0, color: `#FFFFFF`, white-space: `nowrap`
+     - Main Headline Line 2: `between the photographs.` (single line)
+       - Font: `'Luxurious Script', cursive`
+       - Size: `clamp(46px, 5.0vw, 78px)`, font-weight: 400, line-height: 1.15, color: `#F6B8CE`, white-space: `nowrap`
+     - Editorial Paragraph:
+       `A familiar face. A place you almost remember.`
+       `Begin with one little question, and see where it takes you.`
+       - Font: `'Narnoor', sans-serif`
+       - Size: 17px, line-height: 1.7, font-weight: 400, color: `#E0D7DC`, max-width: 460px
+     - Link: "Discover a missing story →" (border-bottom: 1px solid #F9A436, color: #FFD269)
+   - Right Column:
+     Space occupied by the settled Focal Wedding Photograph Card (`.story-invitation`).
+
+C. Welcome Divider (Placed immediately after sticky hero stage):
+   - Margin: 0 4.5%, padding: 23px 0
+   - Border top: 1px solid rgba(249, 164, 54, 0.15)
+   - Left Text: "EVERY FAMILY HAS AN ARCHIVE. SOME OF IT LIVES IN PEOPLE."
+   - Right Text: "SCROLL TO FOLLOW THE THREAD ↓"
+   - Font: 9px, letter-spacing: 2px, uppercase, color: #FFD269
+
+D. Section 02: Conversation & Voice Recording Invitation:
+   - 2-Column grid (max-width: 1250px, padding: 120px 50px)
+   - Left Card (`.record-preview`):
+     - Background `#240C18`, padding `45px 30px`, border-radius `30px`,
+       border `1px solid rgba(232,122,158,0.25)`, shadow `0 20px 55px rgba(0,0,0,0.9)`
+     - Eyebrow: "A QUESTION FROM YOUR FAMILY" (centered, #E87A9E)
+     - Heading: "Do you remember<br/>the blue doorway?" (font-size: 32px, white)
+     - Record Demo Button:
+       80px circle, centered, margin `35px auto 22px`
+       Background: `linear-gradient(135deg, #FFD269 0%, #F9A436 100%)`
+       Outline: `1px solid #FFD269` with `outline-offset: 7px`
+       Shadow: `0 0 35px rgba(249, 164, 54, 0.4)`
+       Icon: Lucide AudioLines/Mic, color `#0D0709`
+       Hover: `transform: scale(1.06); background: #FFF0B8;`
+     - Subtitle: "A little detail is enough." (font-size: 12px, #E0D7DC)
+   - Right Column Typography & Styling (Matches Section 01):
+     - Eyebrow: `02/ MAKE ROOM FOR A VOICE`
+       - Font: `'Libre Baskerville', Georgia, serif`
+       - Size: 13px, font-weight: 400, letter-spacing: 1.2px, color: `#E87A9E`
+     - Main Headline Line 1: `One question.` (single line)
+       - Font: `'Londrina Solid', sans-serif`
+       - Size: `clamp(38px, 4.3vw, 68px)`, font-weight: 900, line-height: 1.0, color: `#FFFFFF`, white-space: `nowrap`
+     - Main Headline Line 2: `their own words.` (single line)
+       - Font: `'Luxurious Script', cursive`
+       - Size: `clamp(46px, 5.0vw, 78px)`, font-weight: 400, line-height: 1.15, color: `#F6B8CE`, white-space: `nowrap`
+     - Editorial Paragraph:
+       `No perfect telling needed. Just an invitation to remember,`
+       `in the voice you know by heart.`
+       - Font: `'Narnoor', sans-serif`
+       - Size: 17px, line-height: 1.7, font-weight: 400, color: `#E0D7DC`, max-width: 460px
+     - Link: "Try a little remembering →" (border-bottom: 1px solid #F9A436, color: #FFD269)
+
+E. Section 03: Film Invitation:
+   - Full-width banner (height: 560px, margin: 20px 4.5%, border-radius: 4px, overflow: hidden)
+   - Background Image: `/images/house.png` at 35% opacity
+   - Linear Vignette Overlay: `linear-gradient(90deg, #0D0709 30%, rgba(43,14,27,.85) 80%, transparent 100%)`
+   - Content:
+     - Eyebrow: "03 / BRING IT ALL TOGETHER"
+     - Heading: "A story you can<br/><em>return to.</em>" (font-size: 76px)
+     - Button: `.light-button` (gold gradient, play icon, "Watch the Mehra family story", padding: 15px 25px)
+
+F. Section 04: Closing Statement & Footer:
+   - Closing Container: Text center, flex-col, align items center, padding: 110px 20px
+   - Eyebrow: `THE NEXT CHAPTER STARTS WITH A QUESTION`
+     - Font: `'Libre Baskerville', Georgia, serif`
+     - Size: 13px, font-weight: 400, letter-spacing: 1.2px, color: `#E87A9E`
+   - Main Headline Line 1: `There is a story only` (single line)
+     - Font: `'Londrina Solid', sans-serif`
+     - Size: `clamp(38px, 4.3vw, 68px)`, font-weight: 900, line-height: 1.0, color: `#FFFFFF`, white-space: `nowrap`
+   - Main Headline Line 2: `someone you love can tell.` (single line)
+     - Font: `'Luxurious Script', cursive`
+     - Size: `clamp(46px, 5.0vw, 78px)`, font-weight: 400, line-height: 1.15, color: `#F6B8CE`, white-space: `nowrap`
+   - CTA Button: `<ShinyButton>` ("Explore the sample archive →")
+     - Conic rotating sheen, deep burgundy fill `#280C1B`, gold label `#FFD269`, amber accent `#F9A436`, corner-radius 4px
+   - Footer:
+     Margin: 0 4.5%, padding: 30px 0, border-top: 1px solid rgba(249, 164, 54, 0.15)
+     Brand emblem left, centered note ("A fictional family. A very real kind of connection."),
+     right note ("Sample archive · Illustrative imagery"). Font-size: 11px, color: #A898A0.
+
+
+================================================================================
+8. INTERACTIVE STATES, HOVER FX & MICRO-ANIMATIONS
+================================================================================
+1. Story Invitation Hover (`.story-invitation:hover`):
+   - transform: rotate(0deg) translateY(-4px);
+   - box-shadow: 0 22px 55px rgba(232, 122, 158, 0.35);
+   - border-color: #FFD269;
+   - transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+2. Golden CTA Buttons (`.primary:hover`, `.light-button:hover`):
+   - background: linear-gradient(135deg, #FFF0B8 0%, #FFD269 100%);
+   - transform: translateY(-1px);
+   - box-shadow: 0 6px 28px rgba(255, 210, 105, 0.48);
+
+3. Mouse Pointer Parallax (during Clustered and Scatter phases):
+   - Active only on desktop mouse devices (disabled on touch / pointer: coarse).
+   - Spring configuration: `{ stiffness: 90, damping: 22, mass: 0.6 }`.
+   - Max drift: `PARALLAX_X = 2.6vw`, `PARALLAX_Y = 2.2vh`.
+   - Depth factor per card: `0.55 + (index / (total - 1)) * 0.75`.
+
+4. Audio Waveform Bars (`.wave i`):
+   - Animated or calculated bars representing intimate spoken memories.
+   - Height formula: `8 + Math.abs(Math.sin(i * 1.7) * Math.cos(i * 0.6)) * 25` px.
+   - Bar width: 2px, border-radius: 1px, background: `#F9A436`.
+
+
+5. Archive Exploration Graph Loading Transition (`GraphTransitionOverlay`):
+   - Trigger: Click on "Open sample archive", "Explore the sample archive", or focal card archive links.
+   - Background: Aubergine/charcoal `#0D0709` (`radial-gradient(ellipse at 50% 45%, #230B17 0%, #0D0709 70%, #080406 100%)`).
+   - Particles: 24 floating warm gold & rose fireflies drifting with organic pulse.
+   - Growing Graph:
+     - Central memory spark at (520, 280) pulsing with golden/dusty rose nucleus.
+     - 12 animated curved SVG Bézier thread arcs drawing outward with cascading delays (0.15s – 0.85s).
+     - 10 memory nodes blooming with spring physics, aura ripples, and translucent holographic card tags.
+   - Typography: "WEAVING THE FAMILY ARCHIVE", *“Connecting voices, photographs, and memories…”*, and gradient progress shimmer.
+   - Morph: Smoothly scales up and morphs directly into the `/archive` Storyboard map plane.
+
+================================================================================
+9. CRITICAL ENGINEERING PITFALLS, BUGS & RULES OF PHYSICS
+================================================================================
+DO NOT MAKE THESE MISTAKES when replicating in another framework or project:
+
+1. Never Pass String calc() Arrays to Framer Motion useTransform:
+   - WRONG:
+     `useTransform(progress, [0, 0.5, 1], ["calc(-50% + 10vw)", "calc(-50% + 0vw)", "calc(-50% + -20vw)"])`
+     Framer Motion's string tokenizer crashes on `+ -` and units switching.
+   - CORRECT:
+     Use a pure JS mathematical function inside `useTransform(progress, (p) => { ... })`
+     and compute the exact number before returning `calc(-50% + ${x.toFixed(2)}vw)`.
+
+2. Opacity Alone Leaves Ghost Hitboxes:
+   - When fading out the 7 background cards, setting `opacity: 0` keeps their DOM elements
+     clickable and hovering over Section 01.
+   - ALWAYS apply:
+     `display: useTransform(scrollYProgress, (p) => p > 0.44 ? "none" : "block")`.
+
+3. Z-Index Layering Order:
+   - Z-Index 2: Canvas Firefly Layer (behind all cards, above void background)
+   - Z-Index 10: Hero Cards container
+   - Z-Index 20: Editorial Section 01 text container
+   - Z-Index 30: Hero Center Headline ("A photograph keeps a moment...")
+     * Container must have `pointer-events: none`, child text `pointer-events: auto`.
+     * Must be strictly above the scattering cards so text is never obscured!
+   - Z-Index 35: Focal Card (elevated when scrollYProgress exceeds 0.40)
+
+4. Mobile & Touch Screen Adaptations:
+   - Check `window.matchMedia("(pointer: coarse)")` rather than only viewport width.
+   - On touch devices, disable mouse parallax.
+   - DestX = 0, DestY = 18vh, midScale = 1.35 (instead of desktop 1.85).
+   - Fall back to clean single-column layouts for Section 01 and Section 02.
+
+
+================================================================================
+10. IMPLEMENTATION & REPLICATION CHECKLIST
+================================================================================
+When creating a new repository/project:
+
+[ ] 1. Dependencies:
+       Install `motion` (or `framer-motion`) and `lucide-react`.
+[ ] 2. Fonts:
+       Add Google Fonts link for `Cormorant Garamond`, `Manrope`, `Inter`, and `IBM Plex Mono` in `<head>` or `globals.css`.
+[ ] 3. Assets:
+       Place high-resolution images in `/public/images/`:
+       - `wedding.png` (The focal card photograph)
+       - `house.png` (The ancestral home photograph)
+       - `meera.png` (Grandmother portrait)
+[ ] 4. Canvas Component:
+       Create `<FireflyLayer count={35} />` using HTML5 Canvas RAF loop.
+[ ] 5. Motion Component:
+       Create `<StackSpread>` with `scrollLength={450}`, `stackScale={1.12}`, `focalIndex={1}`,
+       and `enableEditorialReveal={true}`.
+[ ] 6. Center Hero Headline:
+       Position at z-index 30, with high-contrast text-shadow and soft rose italic glow.
+[ ] 7. Focal Card Transformation:
+       Drive single card from `(33vw, -27vh)` -> `(0, 0)` -> `(21.5vw, 0)` with zoom and rotation.
+[ ] 8. Downstream Sections:
+       Assemble Section 02 (`.record-preview`), Section 03 (`.film-invitation`), and Section 04 (`.closing`).
+[ ] 9. Verification:
+       Test smooth scrolling across all 450vh; ensure zero card flicker, zero ghost hitboxes,
+       and verify responsiveness on mobile devices.
+
+================================================================================
+                         END OF REQUIREMENTS DOCUMENT
+================================================================================
